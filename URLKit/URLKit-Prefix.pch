@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'URLKit' target in the 'URLKit' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
