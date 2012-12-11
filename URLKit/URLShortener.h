@@ -10,8 +10,6 @@
 
 #import "URLShorteningObserver.h"
 
-#define kDefaultURLPattern              @"(?s)((?:\\w+://|\\bwww\\.[^.])\\S+)"
-
 typedef enum : NSUInteger
 {
     URLShortenerProviderBitly,
@@ -20,15 +18,16 @@ typedef enum : NSUInteger
 
 @interface URLShortener : NSObject
 
+
 + (id)defaultURLShortener;
 
 + (id)urlShortenerWithProvider:(URLShortenerProvider)provider;
 
 - (void)shortenURL:(NSURL *)url
-          observer:(id <URLShorteningObserver> *)observer;
+          observer:(id <URLShorteningObserver>)observer;
 
 - (void)shortenTextWithURLs:(NSString *)text
-                   observer:(id <URLShorteningObserver> *)observer;
+                   observer:(id <URLShorteningObserver>)observer;
 
 @end
 

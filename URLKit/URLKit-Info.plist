@@ -26,5 +26,9 @@
 	<string>Copyright © 2012 Nuclear Bunny Studios, LLC. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
+	<key>BitlyAPIUser</key>
+	<string>?placeholder?</string>
+	<key>BitlyAPIKey</key>
+	<string>?placeholder?</string>
 </dict>
 </plist>

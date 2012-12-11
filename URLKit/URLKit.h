@@ -8,4 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
+#import "URLFinder.h"
 #import "URLShortener.h"

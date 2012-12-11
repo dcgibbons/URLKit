@@ -10,8 +10,10 @@
 
 @protocol URLShorteningObserver <NSObject>
 
+@optional
 - (void)urlShortened:(NSURL *)url;
 
+@optional
 - (void)textWithURLsShortened:(NSString *)text;
 
 @end

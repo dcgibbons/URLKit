@@ -14,9 +14,14 @@
 		C28CECA61674419600D8BE95 /* URLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28CEC881674419600D8BE95 /* URLKit.framework */; };
 		C28CECAC1674419600D8BE95 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C28CECAA1674419600D8BE95 /* InfoPlist.strings */; };
 		C28CECAF1674419600D8BE95 /* URLKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C28CECAE1674419600D8BE95 /* URLKitTests.m */; };
-		C28CECBE1674437000D8BE95 /* URLShortener.h in Headers */ = {isa = PBXBuildFile; fileRef = C28CECBC1674437000D8BE95 /* URLShortener.h */; };
+		C28CECBE1674437000D8BE95 /* URLShortener.h in Headers */ = {isa = PBXBuildFile; fileRef = C28CECBC1674437000D8BE95 /* URLShortener.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C28CECBF1674437000D8BE95 /* URLShortener.m in Sources */ = {isa = PBXBuildFile; fileRef = C28CECBD1674437000D8BE95 /* URLShortener.m */; };
-		C28CECC1167445F800D8BE95 /* URLShorteningObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = C28CECC0167445F700D8BE95 /* URLShorteningObserver.h */; };
+		C28CECC1167445F800D8BE95 /* URLShorteningObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = C28CECC0167445F700D8BE95 /* URLShorteningObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C28CECD0167449B800D8BE95 /* URLKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C28CEC981674419600D8BE95 /* URLKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C28CECD3167452FD00D8BE95 /* BitlyProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C28CECD1167452FD00D8BE95 /* BitlyProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C28CECD4167452FD00D8BE95 /* BitlyProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C28CECD2167452FD00D8BE95 /* BitlyProvider.m */; };
+		C28CECD61674538500D8BE95 /* URLFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = C28CECD51674538500D8BE95 /* URLFinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C28CECD8167453E600D8BE95 /* URLFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = C28CECD7167453E600D8BE95 /* URLFinder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,10 @@
 		C28CECBC1674437000D8BE95 /* URLShortener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLShortener.h; sourceTree = "<group>"; };
 		C28CECBD1674437000D8BE95 /* URLShortener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLShortener.m; sourceTree = "<group>"; };
 		C28CECC0167445F700D8BE95 /* URLShorteningObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLShorteningObserver.h; sourceTree = "<group>"; };
+		C28CECD1167452FD00D8BE95 /* BitlyProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitlyProvider.h; sourceTree = "<group>"; };
+		C28CECD2167452FD00D8BE95 /* BitlyProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitlyProvider.m; sourceTree = "<group>"; };
+		C28CECD51674538500D8BE95 /* URLFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLFinder.h; sourceTree = "<group>"; };
+		C28CECD7167453E600D8BE95 /* URLFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFinder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +124,13 @@
 			isa = PBXGroup;
 			children = (
 				C28CEC981674419600D8BE95 /* URLKit.h */,
+				C28CECD51674538500D8BE95 /* URLFinder.h */,
+				C28CECD7167453E600D8BE95 /* URLFinder.m */,
 				C28CECBC1674437000D8BE95 /* URLShortener.h */,
 				C28CECBD1674437000D8BE95 /* URLShortener.m */,
 				C28CECC0167445F700D8BE95 /* URLShorteningObserver.h */,
+				C28CECD1167452FD00D8BE95 /* BitlyProvider.h */,
+				C28CECD2167452FD00D8BE95 /* BitlyProvider.m */,
 				C28CEC921674419600D8BE95 /* Supporting Files */,
 			);
 			path = URLKit;
@@ -159,8 +172,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28CECD0167449B800D8BE95 /* URLKit.h in Headers */,
 				C28CECBE1674437000D8BE95 /* URLShortener.h in Headers */,
 				C28CECC1167445F800D8BE95 /* URLShorteningObserver.h in Headers */,
+				C28CECD61674538500D8BE95 /* URLFinder.h in Headers */,
+				C28CECD3167452FD00D8BE95 /* BitlyProvider.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +187,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C28CECB21674419600D8BE95 /* Build configuration list for PBXNativeTarget "URLKit" */;
 			buildPhases = (
+				C28CECDD167523B800D8BE95 /* ShellScript */,
 				C28CEC831674419600D8BE95 /* Sources */,
 				C28CEC841674419600D8BE95 /* Frameworks */,
 				C28CEC851674419600D8BE95 /* Headers */,
@@ -264,6 +281,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		C28CECDD167523B800D8BE95 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /usr/bin/ruby;
+			shellScript = "# An API keys script written by Patrick Gibson (@patr1ck) and Christopher Bowns (@cbowns)\n# This script sets API keys in your app's Info.plist from an .api_keys file you keep in your home directory (~/.api_keys)\n# This allows you to not check API keys into your source control system,\n# or for different developers to use different keys without needing to patch their working copies.\n\n# Installation directions:\n=begin\n1. Create a Run Script build phase in your Xcode project before Compile Sources\n2. Copy and paste this whole script in.\n3. Create or modify your .api_keys file to hold your API keys\n4. Modify the keys hash below to reference your .api_keys names from step 3\n5. Add placeholder keys to your app's Info.plist for the script to sub into.\n6. Add appropriate code to your app to pull from your Info.plist (see below)\n7. Build your app!\n=end\n\n# Your .api_keys should be in this format: (we recommend changing APPNAME to, well, your app name)\n=begin\nPARSE_APPNAME_PROD_APP_ID=foo\nPARSE_APPNAME_PROD_CLIENT_KEY=bar\nTESTFLIGHT_APPNAME=PartyApp\n=end\n\n# You can move your .api_keys file:\napi_keys_file = \"/Users/#{ENV['USER']}/.api_keys\"\n\n# Declare your app-specific keys' names here, like so:\n# '.api_keys_key' => 'Info.plist_key'\nkeys = {\n    'BITLY_API_USERID' => 'BitlyAPIUser',\n    'BITLY_API_KEY' => 'BitlyAPIKey',\n}\n\n# A reminder: you need to add keys to your Info.plist so this script can put these values somewhere.\n# In XML, it should look something like:\n=begin\n<key>ParseProdClientKey</key>\n<string>?merp?</string>\n<key>TestFlightKey</key>\n<string>?hmm?</string>\n=end\n\n# Once this script is done running, it should look like:\n=begin\n<key>ParseProdClientKey</key>\n<string>bar</string>\n<key>TestFlightKey</key>\n<string>PartyApp</string>\n=end\n\n# Using these values in code looks something like:\n=begin\n[Parse setApplicationId:[[NSBundle mainBundle] objectForInfoDictionaryKey:@\"ParseDevAppID\"]\nclientKey:[[NSBundle mainBundle] objectForInfoDictionaryKey:@\"ParseDevClientKey\"]];\nor\nNSString *testFlightName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@\"TestFlightKey\"];\n=end\n\n# And now, it's time to do some work.\n\n\n# Fail if not run from Xcode\nraise \"Must be run from Xcode\" unless ENV['XCODE_VERSION_ACTUAL']\n\ninfo_plist = \"#{ENV['BUILT_PRODUCTS_DIR']}/#{ENV['INFOPLIST_PATH']}\"\n\n# When building for the device, the plist is already converted to binary, so change it back.\n`plutil -convert xml1 #{info_plist}`\n\n# Load our keys from $HOME/.api_keys\napi_keys = IO.readlines(api_keys_file).join\napi_keys.each do |line|\n# puts \"line is #{line}\"\nif line.to_s.strip.length != 0 # Skip nil or empty or whitespace lines\nkey, value = line.split(\"=\")\nputs \"Loading #{key} = #{value}\"\nENV[key] = value.strip!\nend\nend\n\n# Open Info.plist and set the appropriate value to the revision hash\nlines = IO.readlines(info_plist).join\nkeys.each do |apikey, infokey|\nlines.gsub! /(<key>#{infokey}<\\/key>\\n\\t<string>).*?(<\\/string>)/, \"\\\\1#{ENV[apikey]}\\\\2\"\nend\n\n# Overwrite the original Info.plist file with our updated version\nFile.open(info_plist, 'w') {|f| f.puts lines}\n\n# Convert back to binary1 if we're building for the device\nif ENV['EFFECTIVE_PLATFORM_NAME'] == \"-iphonesimulator\" then\n`plutil -convert xml1 #{info_plist}`\nelse\n`plutil -convert binary1 #{info_plist}`\nend\n\n# Report to the user\nputs \"Updated the API Keys in #{info_plist}\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -272,6 +302,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C28CECBF1674437000D8BE95 /* URLShortener.m in Sources */,
+				C28CECD4167452FD00D8BE95 /* BitlyProvider.m in Sources */,
+				C28CECD8167453E600D8BE95 /* URLFinder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,8 +408,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "URLKit/URLKit-Prefix.pch";
 				INFOPLIST_FILE = "URLKit/URLKit-Info.plist";
-				INSTALL_PATH = "@executable_path/../Framework";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -392,8 +425,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "URLKit/URLKit-Prefix.pch";
 				INFOPLIST_FILE = "URLKit/URLKit-Info.plist";
-				INSTALL_PATH = "@executable_path/../Framework";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
