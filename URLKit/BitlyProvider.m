@@ -18,7 +18,6 @@
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSString *bitlyUser = [bundle objectForInfoDictionaryKey:@"BitlyAPIUser"];
     NSString *bitlyAPIKey = [bundle objectForInfoDictionaryKey:@"BitlyAPIKey"];
-    NSLog(@"bitlyuser=%@ bitlyAPIKey=%@", bitlyUser, bitlyAPIKey);
     
     NSOperationQueue* queue = [[NSOperationQueue alloc] init];
     
@@ -51,10 +50,10 @@
                                                                      options:0
                                                                        error:&error];
                 NSString *statusCode = json[@"statusCode"];
-                NSString *newURL = urlText;
+                NSString *newURL = nil;
                 if ([statusCode compare:@"OK" options:NSCaseInsensitiveSearch] == NSOrderedSame)
                 {
-                    NSDictionary *results = json[@"results"][urlText];
+                    NSDictionary *results = [json[@"results"] allValues][0];
                     newURL = results[@"shortUrl"];
                     [shortenedURLs addObject:@{
                      @"range" : rangeValue,
