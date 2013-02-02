@@ -57,6 +57,7 @@
 		C28CECD2167452FD00D8BE95 /* BitlyProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitlyProvider.m; sourceTree = "<group>"; };
 		C28CECD51674538500D8BE95 /* URLFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLFinder.h; sourceTree = "<group>"; };
 		C28CECD7167453E600D8BE95 /* URLFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFinder.m; sourceTree = "<group>"; };
+		C2BFD2C016BC90660055A24F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +85,7 @@
 		C28CEC7C1674419600D8BE95 = {
 			isa = PBXGroup;
 			children = (
+				C2BFD2C016BC90660055A24F /* README.md */,
 				C28CEC911674419600D8BE95 /* URLKit */,
 				C28CECA71674419600D8BE95 /* URLKitTests */,
 				C28CEC8A1674419600D8BE95 /* Frameworks */,
