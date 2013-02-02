@@ -6,6 +6,28 @@ URL Shortening for Mac OS X and iOS
 USAGE
 -----
 
+````objc
+@interface MyController : NSObject <URLShorteningObserver>
+@end
+
+@implementation MyController
+
+- (void)doSomethingAwesome
+{
+    const URLShortener *shortener = [URLShortener defaultURLShortener];
+    
+    const NSString *text = @"hello, this is cool: http://newoldage.blogs.nytimes.com/2013/02/01/caregiving-laced-with-humor/?hp but this one isn't that cool http://religion.blogs.cnn.com/2013/01/29/poll-quarter-of-americans-say-god-influences-sporting-events/";
+
+    [shortener shortenTextWithURLs:text observer:self];
+}
+
+- (void)textWithURLsShortened:(NSString *)text
+{
+}
+
+@end
+````
+
 LICENSE
 -------
 Copyright 2012-2013 Nuclear Bunny Studios, LLC
