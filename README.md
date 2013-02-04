@@ -3,6 +3,16 @@ URLKit
 
 URL Shortening for Mac OS X and iOS
 
+URLKit provides your applications with a way to shorten long URLs using a 
+variety of common URL shortening services, such as Bit.Ly or Google. There are
+options for shortening both a single NSURL, or a block of text that may contain
+many embedded URLs within, e.g. from a pasteboard buffer.
+
+URLKit is implemented such that the shortening takes place in a secondary
+thread within Grand Dispatch. When the shortening process has completed, an
+observer object provided to URLKit will be called with the results of the
+shortening process.
+
 USAGE
 -----
 
@@ -23,6 +33,7 @@ USAGE
 
 - (void)textWithURLsShortened:(NSString *)text
 {
+    ...
 }
 
 @end
