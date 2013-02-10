@@ -39,6 +39,28 @@ USAGE
 @end
 ````
 
+API KEYS
+--------
+
+URLKit calls out to third-party URL shortening services that require API 
+credentials in order to use their services. It is best practice not to include
+API keys and other security credentials in your source code repositories,
+especially those that are public. How can you manage this with URLKit?
+
+As part of the final build process, URLKit will look for a file named 
+~/.api_keys that contains overrides to the default values of the API key 
+variables. The default values for these variables are provided in this project's
+URLKit-Info.plist file. As part of the final build step, the correct values 
+will be fetched from your ~/.api_keys files and substituted into the final
+Info.plist file.
+
+Presently, the following API Key variables are supported by URLKit:
+
+```
+BITLY_API_USERID
+BITLY_API_KEY
+````
+
 LICENSE
 -------
 Copyright 2012-2013 Nuclear Bunny Studios, LLC
