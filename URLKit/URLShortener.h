@@ -31,7 +31,6 @@ typedef enum : NSUInteger
 
 @interface URLShortener : NSObject
 
-
 + (id)defaultURLShortener;
 
 + (id)urlShortenerWithProvider:(URLShortenerProvider)provider;

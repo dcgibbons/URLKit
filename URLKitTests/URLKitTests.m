@@ -20,6 +20,9 @@
 //
 
 #import "URLKitTests.h"
+#import "URLShortener.h"
+#import "BitlyProvider.h"
+#import "GoogleProvider.h"
 
 @implementation URLKitTests
 
@@ -37,9 +40,29 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testDefaultProvider
 {
-    STFail(@"Unit tests are not implemented yet in URLKitTests");
+    URLShortener *shortener = [URLShortener defaultURLShortener];
+    STAssertNotNil(shortener, @"default provider not available");
+    STAssertTrue([shortener isKindOfClass:[GoogleProvider class]],
+                 @"default URLShortener object is not GoogleProvider");
+}
+
+- (void)testBitlyProvider
+{
+    URLShortener *shortener = [URLShortener urlShortenerWithProvider:URLShortenerProviderBitly];
+    STAssertNotNil(shortener, @"BitLy provider not available");
+    STAssertTrue([shortener isKindOfClass:[BitlyProvider class]],
+                 @"default URLShortener object is not BitlyProvider");
+}
+
+- (void)testGoogleProvider
+{
+    URLShortener *shortener = [URLShortener urlShortenerWithProvider:URLShortenerProviderGoogle];
+    STAssertNotNil(shortener, @"Google provider not available");
+    STAssertTrue([shortener isKindOfClass:[GoogleProvider class]],
+                 @"default URLShortener object is not GoogleProvider");
+    
 }
 
 @end
