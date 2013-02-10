@@ -20,6 +20,7 @@
 //
 
 #import "URLShortener.h"
+#import "GoogleProvider.h"
 #import "BitlyProvider.h"
 
 @implementation URLShortener
@@ -36,10 +37,10 @@
     switch (provider)
     {
         case URLShortenerProviderBitly:
-            shortener = nil;
+            shortener = [[BitlyProvider alloc] init];
             break;
         case URLShortenerProviderGoogle:
-            shortener = [[BitlyProvider alloc] init];
+            shortener = [[GoogleProvider alloc] init];
             break;
     }
     
@@ -62,39 +63,5 @@
                 format:@"You must override %@ in a subclass",
      NSStringFromSelector(_cmd)];
 }
-
-
-
-//    // a special paste will look for URLs in the pasteboard text and then
-//    // send them to a URL shortener processor before they are pasted to the
-//    // input buffer
-//    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
-//    NSArray *classes = @[[NSString class]];
-//    NSDictionary *options = @{};
-//    NSArray *copiedItems = [pasteboard readObjectsForClasses:classes
-//                                                     options:options];
-//    for (NSString *text in copiedItems)
-//    {
-//        NSError *error = NULL;
-//        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:kDefaultURLPattern
-//                                                                               options:NSRegularExpressionCaseInsensitive
-//                                                                                 error:&error];
-//
-//        NSArray *matches = [regex matchesInString:text
-//                                          options:0
-//                                            range:NSMakeRange(0, [text length])];
-//
-//        for (NSTextCheckingResult *match in matches)
-//        {
-//            NSRange urlRange = [match rangeAtIndex:1];
-//            NSString *urlText = [text substringWithRange:urlRange];
-//            [URLHelper shortenURL:[NSURL URLWithString:urlText]
-//                       toSelector:@selector(pasteURL:)
-//                         onObject:self];
-//        }
-//
-//        // TODO: this special paste doesn't deal with the text in the pasteboard
-//        // that aren't URL's! whoops
-//    }
 
 @end

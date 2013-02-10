@@ -30,5 +30,7 @@
 	<string>?placeholder?</string>
 	<key>BitlyAPIKey</key>
 	<string>?placeholder?</string>
+	<key>GoogleAPIKey</key>
+	<string>?placeholder?</string>
 </dict>
 </plist>

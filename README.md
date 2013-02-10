@@ -59,6 +59,7 @@ Presently, the following API Key variables are supported by URLKit:
 ```
 BITLY_API_USERID
 BITLY_API_KEY
+GOOGLE_API_KEY
 ````
 
 LICENSE
