@@ -13,6 +13,7 @@ thread within Grand Dispatch. When the shortening process has completed, an
 observer object provided to URLKit will be called with the results of the
 shortening process.
 
+
 USAGE
 -----
 
@@ -39,6 +40,7 @@ USAGE
 @end
 ````
 
+
 API KEYS
 --------
 
@@ -61,6 +63,24 @@ BITLY_API_USERID
 BITLY_API_KEY
 GOOGLE_API_KEY
 ````
+
+
+ADDING A NEW PROVIDER
+---------------------
+
+To add a new URL Shortening provider, perform the following steps:
+
+ 1. Add and implement your new provider class, e.g. FoobarProvider
+ 2. Update the unit tests to test your new provider
+ 3. Add FoobarProvider to the URLShortenerProvider enum in URLShortener.h
+ 4. Determine what API key credentials are needed by your provider, e.g.
+    FoobarAPIKey
+ 5. Add FoobarAPIKey to URLKit-Info.Plist
+ 6. Modify the script Build Phase and add a translation of FOOBAR_API_KEY to
+    FoobarAPIKey so that actual API keys can be correctly fetched from 
+    ~/.api_keys
+ 7. Test!
+
 
 LICENSE
 -------
