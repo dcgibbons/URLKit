@@ -49,6 +49,7 @@ observer:(id <URLShorteningObserver>)observer
 
                 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:google];
                 [request setHTTPMethod:@"POST"];
+                [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
                 NSString *escapedURLText = [urlText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
                 NSString *myString = [NSString stringWithFormat:@"{\"longUrl\":\"%@\"}",
