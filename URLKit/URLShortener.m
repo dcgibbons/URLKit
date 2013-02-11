@@ -59,9 +59,47 @@
 - (void)shortenTextWithURLs:(NSString *)text
                    observer:(id <URLShorteningObserver>)observer
 {
+    NSOperationQueue* queue = [[NSOperationQueue alloc] init];
+    
+    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+        NSArray *urls = [[URLFinder findURLs:text] mutableCopy];
+        NSMutableArray *shortenedURLs = [NSMutableArray arrayWithCapacity:10];
+        
+        for (NSValue *rangeValue in urls)
+        {
+            NSRange urlRange = [rangeValue rangeValue];
+            NSString *urlText = [text substringWithRange:urlRange];
+            
+            NSString *shortenedURL = [self shortenURLTextSynchronously:urlText];
+            [shortenedURLs addObject:@{
+             @"range" : rangeValue,
+             @"newURL" : shortenedURL
+             }];
+        }
+        
+        NSMutableString *newText = [text mutableCopy];
+        for (NSDictionary *d in shortenedURLs)
+        {
+            NSRange urlRange = [d[@"range"] rangeValue];
+            NSString *newURL = d[@"newURL"];
+            [newText replaceCharactersInRange:urlRange withString:newURL];
+        }
+        
+        dispatch_sync(dispatch_get_main_queue(), ^(void)
+                      {
+                          [observer textWithURLsShortened:newText];
+                      });
+    }];
+    
+    [queue addOperation:op];
+}
+
+- (NSString *)shortenURLTextSynchronously:(NSString *)longURLtext
+{
     [NSException raise:NSInternalInconsistencyException
                 format:@"You must override %@ in a subclass",
      NSStringFromSelector(_cmd)];
+    return nil;
 }
 
 @end

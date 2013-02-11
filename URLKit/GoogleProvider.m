@@ -24,69 +24,43 @@
 @implementation GoogleProvider
 
 #define kGoogleRequest  @"https://www.googleapis.com/urlshortener/v1/url?key=%@"
+#define kMinimumURLSize 18  // len(http://goo.gl/wQQW)
 
-- (void)shortenTextWithURLs:(NSString *)text
-observer:(id <URLShorteningObserver>)observer
+- (NSString *)shortenURLTextSynchronously:(NSString *)longURLtext
 {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSString *googleAPIKey = [bundle objectForInfoDictionaryKey:@"GoogleAPIKey"];
     
-    NSOperationQueue* queue = [[NSOperationQueue alloc] init];
-    
-    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
-        NSArray *urls = [[URLFinder findURLs:text] mutableCopy];
-        NSMutableArray *shortenedURLs = [NSMutableArray arrayWithCapacity:10];
+    NSString *newURL = nil;
+    if ([longURLtext length] < kMinimumURLSize)
+    {
+        newURL = longURLtext;
+    }
+    else
+    {
+        NSURL *google = [NSURL URLWithString:[NSString stringWithFormat:kGoogleRequest,
+                                              googleAPIKey]];
         
-        for (NSValue *rangeValue in urls)
-        {
-            NSRange urlRange = [rangeValue rangeValue];
-            NSString *urlText = [text substringWithRange:urlRange];
-            
-            if ([urlText length] > 20)
-            {
-                NSURL *google = [NSURL URLWithString:[NSString stringWithFormat:kGoogleRequest,
-                                                      googleAPIKey]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:google];
+        [request setHTTPMethod:@"POST"];
+        [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        
+        NSString *myString = [NSString stringWithFormat:@"{\"longUrl\":\"%@\"}",
+                              longURLtext];
+        [request setHTTPBody:[myString dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        NSURLResponse *response = NULL;
+        NSError *error = NULL;
+        NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:&response
+                                                         error:&error];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:0
+                                                               error:&error];
+        newURL = json[@"id"];
+    }
 
-                NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:google];
-                [request setHTTPMethod:@"POST"];
-                [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-
-                NSString *escapedURLText = [urlText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-                NSString *myString = [NSString stringWithFormat:@"{\"longUrl\":\"%@\"}",
-                                      escapedURLText];
-                [request setHTTPBody:[myString dataUsingEncoding:NSUTF8StringEncoding]];
-                
-                NSURLResponse *response = NULL;
-                NSError *error = NULL;
-                NSData *data = [NSURLConnection sendSynchronousRequest:request
-                                                     returningResponse:&response
-                                                                 error:&error];
-                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
-                                                                     options:0
-                                                                       error:&error];
-                NSString *newURL = json[@"id"];
-                [shortenedURLs addObject:@{
-                 @"range" : rangeValue,
-                 @"newURL" : newURL
-                 }];
-            }
-        }
-        
-        NSMutableString *newText = [text mutableCopy];
-        for (NSDictionary *d in shortenedURLs)
-        {
-            NSRange urlRange = [d[@"range"] rangeValue];
-            NSString *newURL = d[@"newURL"];
-            [newText replaceCharactersInRange:urlRange withString:newURL];
-        }
-        
-        dispatch_sync(dispatch_get_main_queue(), ^(void)
-                      {
-                          [observer textWithURLsShortened:newText];
-                      });
-    }];
-    
-    [queue addOperation:op];
+    return newURL;
 }
 
 @end

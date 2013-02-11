@@ -23,74 +23,48 @@
 
 @implementation BitlyProvider
 
-#define kBitlyRequest @"http://api.bit.ly/shorten?version=2.0.1&format=json&login=%@&apiKey=%@&longUrl=%@"
+#define kBitlyRequest   @"http://api.bit.ly/shorten?version=2.0.1&format=json&login=%@&apiKey=%@&longUrl=%@"
+#define kMinimumURLSize 20  // len(http://bit.ly/WR5sD7)
 
-- (void)shortenTextWithURLs:(NSString *)text
-                   observer:(id <URLShorteningObserver>)observer
+- (NSString *)shortenURLTextSynchronously:(NSString *)longURLtext
 {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSString *bitlyUser = [bundle objectForInfoDictionaryKey:@"BitlyAPIUser"];
     NSString *bitlyAPIKey = [bundle objectForInfoDictionaryKey:@"BitlyAPIKey"];
     
-    NSOperationQueue* queue = [[NSOperationQueue alloc] init];
-    
-    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
-        NSArray *urls = [[URLFinder findURLs:text] mutableCopy];
-        NSMutableArray *shortenedURLs = [NSMutableArray arrayWithCapacity:10];
+    NSString *newURL = nil;
+    if ([longURLtext length] < kMinimumURLSize)
+    {
+        newURL = longURLtext;
+    }
+    else
+    {
+        NSString *escapedURLText = [longURLtext stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
-        for (NSValue *rangeValue in urls)
+        NSString *bitlyURL = [NSString stringWithFormat:kBitlyRequest,
+                              bitlyUser,
+                              bitlyAPIKey,
+                              escapedURLText];
+        
+        NSURL *bitly = [NSURL URLWithString:bitlyURL];
+        NSURLRequest *request = [NSURLRequest requestWithURL:bitly];
+        NSURLResponse *response = NULL;
+        NSError *error = NULL;
+        NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:&response
+                                                         error:&error];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:0
+                                                               error:&error];
+        NSString *statusCode = json[@"statusCode"];
+        if ([statusCode compare:@"OK" options:NSCaseInsensitiveSearch] == NSOrderedSame)
         {
-            NSRange urlRange = [rangeValue rangeValue];
-            NSString *urlText = [text substringWithRange:urlRange];
-            
-            if ([urlText length] > 24)
-            {
-                NSString *escapedURLText = [urlText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-                
-                NSString *bitlyURL = [NSString stringWithFormat:kBitlyRequest,
-                                      bitlyUser,
-                                      bitlyAPIKey,
-                                      escapedURLText];
-                
-                NSURL *bitly = [NSURL URLWithString:bitlyURL];
-                NSURLRequest *request = [NSURLRequest requestWithURL:bitly];
-                NSURLResponse *response = NULL;
-                NSError *error = NULL;
-                NSData *data = [NSURLConnection sendSynchronousRequest:request
-                                                     returningResponse:&response
-                                                                 error:&error];
-                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
-                                                                     options:0
-                                                                       error:&error];
-                NSString *statusCode = json[@"statusCode"];
-                NSString *newURL = nil;
-                if ([statusCode compare:@"OK" options:NSCaseInsensitiveSearch] == NSOrderedSame)
-                {
-                    NSDictionary *results = [json[@"results"] allValues][0];
-                    newURL = results[@"shortUrl"];
-                    [shortenedURLs addObject:@{
-                     @"range" : rangeValue,
-                     @"newURL" : newURL
-                     }];
-                }
-            }
+            NSDictionary *results = [json[@"results"] allValues][0];
+            newURL = results[@"shortUrl"];
         }
-        
-        NSMutableString *newText = [text mutableCopy];
-        for (NSDictionary *d in shortenedURLs)
-        {
-            NSRange urlRange = [d[@"range"] rangeValue];
-            NSString *newURL = d[@"newURL"];
-            [newText replaceCharactersInRange:urlRange withString:newURL];
-        }
-        
-        dispatch_sync(dispatch_get_main_queue(), ^(void)
-                      {
-                          [observer textWithURLsShortened:newText];
-                      });
-    }];
+    }
     
-    [queue addOperation:op];
+    return newURL;
 }
 
 @end

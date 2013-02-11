@@ -41,5 +41,7 @@ typedef enum : NSUInteger
 - (void)shortenTextWithURLs:(NSString *)text
                    observer:(id <URLShorteningObserver>)observer;
 
+- (NSString *)shortenURLTextSynchronously:(NSString *)longURLtext;
+
 @end
 

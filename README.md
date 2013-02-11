@@ -70,7 +70,10 @@ ADDING A NEW PROVIDER
 
 To add a new URL Shortening provider, perform the following steps:
 
- 1. Add and implement your new provider class, e.g. FoobarProvider
+ 1. Add and implement your new provider class, e.g. FoobarProvider. The easiest
+    thing to do is to implement a version of shortenURLTextSynchronously for
+    your specific provider and let URLShortener.m do all the work of splitting
+    up multiple URLs and handling operation queues as needed.
  2. Update the unit tests to test your new provider
  3. Add FoobarProvider to the URLShortenerProvider enum in URLShortener.h
  4. Determine what API key credentials are needed by your provider, e.g.
