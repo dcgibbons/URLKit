@@ -49,19 +49,19 @@ framework for Mac OS X, and URLKitLibrary, a Cocoa Touch Static Library for
 iOS. To embed URLKit into your application, do the following:
 
 For *Mac OS X*
-1. Insert the URLKit Xcode project into your application's project.
-2. Add the URLKit framework as a dependency to your target(s).
-3. Add URLKit.framework to your Link Binaries with Libraries build phase.
-3. Add #import <URLKit/URLKit.h> to your source modules as needed.
+ 1. Insert the URLKit Xcode project into your application's project.
+ 2. Add the URLKit framework as a dependency to your target(s).
+ 3. Add URLKit.framework to your Link Binaries with Libraries build phase.
+ 4. Add #import <URLKit/URLKit.h> to your source modules as needed.
 
 For *iOS*
-1. Insert the URLKit Xcode project into your application's project.
-2. Add URLKitLibrary as a dependency to your target(s).
-3. Add libURLKitLibrary.a to your Link Binaries with Libraries build phrase.
-4. Copy all of the API Key settings from URLKit-Info.plist into your
-   application's .plist file. Today these include BitlyAPIUser, BitlyAPIKey, and
-   GoogleAPIKey.
-5. Add #import <URLKitLibrary/URLKit.h> to your source modules as needed.
+ 1. Insert the URLKit Xcode project into your application's project.
+ 2. Add URLKitLibrary as a dependency to your target(s).
+ 3. Add libURLKitLibrary.a to your Link Binaries with Libraries build phrase.
+ 4. Copy all of the API Key settings from URLKit-Info.plist into your
+    application's .plist file. Today these include BitlyAPIUser, BitlyAPIKey, and
+    GoogleAPIKey.
+ 5. Add #import <URLKitLibrary/URLKit.h> to your source modules as needed.
 
 
 API KEYS
