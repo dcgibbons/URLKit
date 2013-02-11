@@ -18,5 +18,11 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>BitlyAPIUser</key>
+	<string>?placeholder?</string>
+	<key>BitlyAPIKey</key>
+	<string>?placeholder?</string>
+	<key>GoogleAPIKey</key>
+	<string>?placeholder?</string>
 </dict>
 </plist>

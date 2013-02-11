@@ -7,8 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C209F39A16C8487A009BE765 /* GoogleProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C209F39816C8487A009BE765 /* GoogleProvider.h */; };
+		C209F39A16C8487A009BE765 /* GoogleProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C209F39816C8487A009BE765 /* GoogleProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		C209F39B16C8487A009BE765 /* GoogleProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C209F39916C8487A009BE765 /* GoogleProvider.m */; };
+		C209F3A216C8A37C009BE765 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C209F3A116C8A37C009BE765 /* Foundation.framework */; };
+		C209F3B016C8A37C009BE765 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28CECA11674419600D8BE95 /* SenTestingKit.framework */; };
+		C209F3B216C8A37C009BE765 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C209F3B116C8A37C009BE765 /* UIKit.framework */; };
+		C209F3B316C8A37C009BE765 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C209F3A116C8A37C009BE765 /* Foundation.framework */; };
+		C209F3B616C8A37C009BE765 /* libURLKitLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C209F3A016C8A37C009BE765 /* libURLKitLibrary.a */; };
+		C209F3C616C8A3B6009BE765 /* URLKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C28CECAE1674419600D8BE95 /* URLKitTests.m */; };
+		C209F3CA16C8A493009BE765 /* URLFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = C28CECD7167453E600D8BE95 /* URLFinder.m */; };
+		C209F3CB16C8A493009BE765 /* URLShortener.m in Sources */ = {isa = PBXBuildFile; fileRef = C28CECBD1674437000D8BE95 /* URLShortener.m */; };
+		C209F3CC16C8A493009BE765 /* BitlyProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C28CECD2167452FD00D8BE95 /* BitlyProvider.m */; };
+		C209F3CD16C8A493009BE765 /* GoogleProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C209F39916C8487A009BE765 /* GoogleProvider.m */; };
+		C209F3D116C8A59C009BE765 /* URLKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C28CEC981674419600D8BE95 /* URLKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C209F3D216C8A59C009BE765 /* URLFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = C28CECD51674538500D8BE95 /* URLFinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C209F3D316C8A59C009BE765 /* URLShortener.m in Headers */ = {isa = PBXBuildFile; fileRef = C28CECBD1674437000D8BE95 /* URLShortener.m */; settings = {ATTRIBUTES = (Public, ); }; };
+		C209F3D416C8A59C009BE765 /* URLShorteningObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = C28CECC0167445F700D8BE95 /* URLShorteningObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C209F3D516C8A5A3009BE765 /* BitlyProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C28CECD1167452FD00D8BE95 /* BitlyProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C209F3D616C8A5A3009BE765 /* GoogleProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C209F39816C8487A009BE765 /* GoogleProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C209F3D816C8A672009BE765 /* URLKitLibrary-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = C209F3CE16C8A4D1009BE765 /* URLKitLibrary-Prefix.pch */; };
 		C28CEC8C1674419600D8BE95 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28CEC8B1674419600D8BE95 /* Cocoa.framework */; };
 		C28CEC961674419600D8BE95 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C28CEC941674419600D8BE95 /* InfoPlist.strings */; };
 		C28CECA21674419600D8BE95 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28CECA11674419600D8BE95 /* SenTestingKit.framework */; };
@@ -27,6 +44,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C209F3B416C8A37C009BE765 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C28CEC7E1674419600D8BE95 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C209F39F16C8A37C009BE765;
+			remoteInfo = URLKitLibrary;
+		};
 		C28CECA41674419600D8BE95 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C28CEC7E1674419600D8BE95 /* Project object */;
@@ -36,9 +60,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C209F39E16C8A37C009BE765 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C209F39816C8487A009BE765 /* GoogleProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleProvider.h; sourceTree = "<group>"; };
 		C209F39916C8487A009BE765 /* GoogleProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleProvider.m; sourceTree = "<group>"; };
+		C209F3A016C8A37C009BE765 /* libURLKitLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libURLKitLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C209F3A116C8A37C009BE765 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C209F3AF16C8A37C009BE765 /* URLKitLibraryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URLKitLibraryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C209F3B116C8A37C009BE765 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		C209F3CE16C8A4D1009BE765 /* URLKitLibrary-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "URLKitLibrary-Prefix.pch"; sourceTree = "<group>"; };
 		C28CEC881674419600D8BE95 /* URLKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URLKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28CEC8B1674419600D8BE95 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C28CEC8E1674419600D8BE95 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -65,6 +106,25 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C209F39D16C8A37C009BE765 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C209F3A216C8A37C009BE765 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C209F3AB16C8A37C009BE765 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C209F3B016C8A37C009BE765 /* SenTestingKit.framework in Frameworks */,
+				C209F3B216C8A37C009BE765 /* UIKit.framework in Frameworks */,
+				C209F3B316C8A37C009BE765 /* Foundation.framework in Frameworks */,
+				C209F3B616C8A37C009BE765 /* libURLKitLibrary.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C28CEC841674419600D8BE95 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -102,6 +162,8 @@
 			children = (
 				C28CEC881674419600D8BE95 /* URLKit.framework */,
 				C28CECA01674419600D8BE95 /* URLKitTests.octest */,
+				C209F3A016C8A37C009BE765 /* libURLKitLibrary.a */,
+				C209F3AF16C8A37C009BE765 /* URLKitLibraryTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,6 +173,8 @@
 			children = (
 				C28CEC8B1674419600D8BE95 /* Cocoa.framework */,
 				C28CECA11674419600D8BE95 /* SenTestingKit.framework */,
+				C209F3A116C8A37C009BE765 /* Foundation.framework */,
+				C209F3B116C8A37C009BE765 /* UIKit.framework */,
 				C28CEC8D1674419600D8BE95 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -150,6 +214,7 @@
 				C28CEC931674419600D8BE95 /* URLKit-Info.plist */,
 				C28CEC941674419600D8BE95 /* InfoPlist.strings */,
 				C28CEC971674419600D8BE95 /* URLKit-Prefix.pch */,
+				C209F3CE16C8A4D1009BE765 /* URLKitLibrary-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -176,6 +241,20 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		C209F3D016C8A57A009BE765 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C209F3D116C8A59C009BE765 /* URLKit.h in Headers */,
+				C209F3D216C8A59C009BE765 /* URLFinder.h in Headers */,
+				C209F3D316C8A59C009BE765 /* URLShortener.m in Headers */,
+				C209F3D416C8A59C009BE765 /* URLShorteningObserver.h in Headers */,
+				C209F3D516C8A5A3009BE765 /* BitlyProvider.h in Headers */,
+				C209F3D616C8A5A3009BE765 /* GoogleProvider.h in Headers */,
+				C209F3D816C8A672009BE765 /* URLKitLibrary-Prefix.pch in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C28CEC851674419600D8BE95 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,6 +271,44 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		C209F39F16C8A37C009BE765 /* URLKitLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C209F3C016C8A37C009BE765 /* Build configuration list for PBXNativeTarget "URLKitLibrary" */;
+			buildPhases = (
+				C209F39C16C8A37C009BE765 /* Sources */,
+				C209F39D16C8A37C009BE765 /* Frameworks */,
+				C209F3D016C8A57A009BE765 /* Headers */,
+				C209F39E16C8A37C009BE765 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = URLKitLibrary;
+			productName = URLKitLibrary;
+			productReference = C209F3A016C8A37C009BE765 /* libURLKitLibrary.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C209F3AE16C8A37C009BE765 /* URLKitLibraryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C209F3C316C8A37C009BE765 /* Build configuration list for PBXNativeTarget "URLKitLibraryTests" */;
+			buildPhases = (
+				C209F40316C8AC8A009BE765 /* ShellScript */,
+				C209F3AA16C8A37C009BE765 /* Sources */,
+				C209F3AB16C8A37C009BE765 /* Frameworks */,
+				C209F3AC16C8A37C009BE765 /* Resources */,
+				C209F3AD16C8A37C009BE765 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C209F3B516C8A37C009BE765 /* PBXTargetDependency */,
+			);
+			name = URLKitLibraryTests;
+			productName = URLKitLibraryTests;
+			productReference = C209F3AF16C8A37C009BE765 /* URLKitLibraryTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		C28CEC871674419600D8BE95 /* URLKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C28CECB21674419600D8BE95 /* Build configuration list for PBXNativeTarget "URLKit" */;
@@ -253,11 +370,20 @@
 			targets = (
 				C28CEC871674419600D8BE95 /* URLKit */,
 				C28CEC9F1674419600D8BE95 /* URLKitTests */,
+				C209F39F16C8A37C009BE765 /* URLKitLibrary */,
+				C209F3AE16C8A37C009BE765 /* URLKitLibraryTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C209F3AC16C8A37C009BE765 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C28CEC861674419600D8BE95 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,6 +403,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		C209F3AD16C8A37C009BE765 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		C209F40316C8AC8A009BE765 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /usr/bin/ruby;
+			shellScript = "# An API keys script written by Patrick Gibson (@patr1ck) and Christopher Bowns (@cbowns)\n# This script sets API keys in your app's Info.plist from an .api_keys file you keep in your home directory (~/.api_keys)\n# This allows you to not check API keys into your source control system,\n# or for different developers to use different keys without needing to patch their working copies.\n\n# Installation directions:\n=begin\n1. Create a Run Script build phase in your Xcode project before Compile Sources\n2. Copy and paste this whole script in.\n3. Create or modify your .api_keys file to hold your API keys\n4. Modify the keys hash below to reference your .api_keys names from step 3\n5. Add placeholder keys to your app's Info.plist for the script to sub into.\n6. Add appropriate code to your app to pull from your Info.plist (see below)\n7. Build your app!\n=end\n\n# Your .api_keys should be in this format: (we recommend changing APPNAME to, well, your app name)\n=begin\nPARSE_APPNAME_PROD_APP_ID=foo\nPARSE_APPNAME_PROD_CLIENT_KEY=bar\nTESTFLIGHT_APPNAME=PartyApp\n=end\n\n# You can move your .api_keys file:\napi_keys_file = \"/Users/#{ENV['USER']}/.api_keys\"\n\n# Declare your app-specific keys' names here, like so:\n# '.api_keys_key' => 'Info.plist_key'\nkeys = {\n    'BITLY_API_USERID' => 'BitlyAPIUser',\n    'BITLY_API_KEY' => 'BitlyAPIKey',\n    'GOOGLE_API_KEY' => 'GoogleAPIKey',\n}\n\n# A reminder: you need to add keys to your Info.plist so this script can put these values somewhere.\n# In XML, it should look something like:\n=begin\n<key>ParseProdClientKey</key>\n<string>?merp?</string>\n<key>TestFlightKey</key>\n<string>?hmm?</string>\n=end\n\n# Once this script is done running, it should look like:\n=begin\n<key>ParseProdClientKey</key>\n<string>bar</string>\n<key>TestFlightKey</key>\n<string>PartyApp</string>\n=end\n\n# Using these values in code looks something like:\n=begin\n[Parse setApplicationId:[[NSBundle mainBundle] objectForInfoDictionaryKey:@\"ParseDevAppID\"]\nclientKey:[[NSBundle mainBundle] objectForInfoDictionaryKey:@\"ParseDevClientKey\"]];\nor\nNSString *testFlightName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@\"TestFlightKey\"];\n=end\n\n# And now, it's time to do some work.\n\n\n# Fail if not run from Xcode\nraise \"Must be run from Xcode\" unless ENV['XCODE_VERSION_ACTUAL']\n\ninfo_plist = \"#{ENV['BUILT_PRODUCTS_DIR']}/#{ENV['INFOPLIST_PATH']}\"\n\n# When building for the device, the plist is already converted to binary, so change it back.\n`plutil -convert xml1 #{info_plist}`\n\n# Load our keys from $HOME/.api_keys\napi_keys = IO.readlines(api_keys_file).join\napi_keys.each do |line|\n# puts \"line is #{line}\"\nif line.to_s.strip.length != 0 # Skip nil or empty or whitespace lines\nkey, value = line.split(\"=\")\nputs \"Loading #{key} = #{value}\"\nENV[key] = value.strip!\nend\nend\n\n# Open Info.plist and set the appropriate value to the revision hash\nlines = IO.readlines(info_plist).join\nkeys.each do |apikey, infokey|\nlines.gsub! /(<key>#{infokey}<\\/key>\\n\\t<string>).*?(<\\/string>)/, \"\\\\1#{ENV[apikey]}\\\\2\"\nend\n\n# Overwrite the original Info.plist file with our updated version\nFile.open(info_plist, 'w') {|f| f.puts lines}\n\n# Convert back to binary1 if we're building for the device\nif ENV['EFFECTIVE_PLATFORM_NAME'] == \"-iphonesimulator\" then\n`plutil -convert xml1 #{info_plist}`\nelse\n`plutil -convert binary1 #{info_plist}`\nend\n\n# Report to the user\nputs \"Updated the API Keys in #{info_plist}\"";
+		};
 		C28CEC9E1674419600D8BE95 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -306,6 +458,25 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C209F39C16C8A37C009BE765 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C209F3CA16C8A493009BE765 /* URLFinder.m in Sources */,
+				C209F3CB16C8A493009BE765 /* URLShortener.m in Sources */,
+				C209F3CC16C8A493009BE765 /* BitlyProvider.m in Sources */,
+				C209F3CD16C8A493009BE765 /* GoogleProvider.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C209F3AA16C8A37C009BE765 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C209F3C616C8A3B6009BE765 /* URLKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C28CEC831674419600D8BE95 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -328,6 +499,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C209F3B516C8A37C009BE765 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C209F39F16C8A37C009BE765 /* URLKitLibrary */;
+			targetProxy = C209F3B416C8A37C009BE765 /* PBXContainerItemProxy */;
+		};
 		C28CECA51674419600D8BE95 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C28CEC871674419600D8BE95 /* URLKit */;
@@ -355,6 +531,90 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C209F3C116C8A37C009BE765 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				DSTROOT = /tmp/URLKitLibrary.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "URLKit/URLKitLibrary-Prefix.pch";
+				INFOPLIST_FILE = "URLKit/URLKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C209F3C216C8A37C009BE765 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				DSTROOT = /tmp/URLKitLibrary.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "URLKit/URLKitLibrary-Prefix.pch";
+				INFOPLIST_FILE = "URLKit/URLKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C209F3C416C8A37C009BE765 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "URLKit/URLKitLibrary-Prefix.pch";
+				INFOPLIST_FILE = "URLKitTests/URLKitTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		C209F3C516C8A37C009BE765 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "URLKit/URLKitLibrary-Prefix.pch";
+				INFOPLIST_FILE = "URLKitTests/URLKitTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		C28CECB01674419600D8BE95 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -471,6 +731,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C209F3C016C8A37C009BE765 /* Build configuration list for PBXNativeTarget "URLKitLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C209F3C116C8A37C009BE765 /* Debug */,
+				C209F3C216C8A37C009BE765 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C209F3C316C8A37C009BE765 /* Build configuration list for PBXNativeTarget "URLKitLibraryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C209F3C416C8A37C009BE765 /* Debug */,
+				C209F3C516C8A37C009BE765 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C28CEC811674419600D8BE95 /* Build configuration list for PBXProject "URLKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
