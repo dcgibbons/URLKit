@@ -80,6 +80,7 @@
 		C209F3AF16C8A37C009BE765 /* URLKitLibraryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URLKitLibraryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C209F3B116C8A37C009BE765 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		C209F3CE16C8A4D1009BE765 /* URLKitLibrary-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "URLKitLibrary-Prefix.pch"; sourceTree = "<group>"; };
+		C209F40E16C8AE97009BE765 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C28CEC881674419600D8BE95 /* URLKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URLKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28CEC8B1674419600D8BE95 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C28CEC8E1674419600D8BE95 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -175,6 +176,7 @@
 				C28CECA11674419600D8BE95 /* SenTestingKit.framework */,
 				C209F3A116C8A37C009BE765 /* Foundation.framework */,
 				C209F3B116C8A37C009BE765 /* UIKit.framework */,
+				C209F40E16C8AE97009BE765 /* CoreGraphics.framework */,
 				C28CEC8D1674419600D8BE95 /* Other Frameworks */,
 			);
 			name = Frameworks;
