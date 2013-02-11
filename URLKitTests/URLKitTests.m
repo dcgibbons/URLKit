@@ -24,6 +24,27 @@
 #import "BitlyProvider.h"
 #import "GoogleProvider.h"
 
+typedef void (^CompletionBlock)(NSString *text);
+
+@interface TestObserver : NSObject <URLShorteningObserver>
+{
+    CompletionBlock _block;
+}
+- (id)initWithBlock:(CompletionBlock)block;
+@end
+
+@implementation TestObserver
+- (id)initWithBlock:(CompletionBlock)block
+{
+    _block = block;
+    return self;
+}
+- (void)textWithURLsShortened:(NSString *)text
+{
+    _block(text);
+}
+@end
+
 @implementation URLKitTests
 
 - (void)setUp
@@ -63,6 +84,58 @@
     STAssertTrue([shortener isKindOfClass:[GoogleProvider class]],
                  @"default URLShortener object is not GoogleProvider");
     
+}
+
+- (void)testProviderResults
+{
+    __block BOOL hasCalledBack = NO;
+    __block NSString *shortenedText = nil;
+    
+    void (^completionBlock)(NSString *) = ^(NSString *text) {
+        NSLog(@"Completion Block! text=%@", text);
+        hasCalledBack = YES;
+        shortenedText = [text copy];
+    };
+    
+    TestObserver *testObserver = [[TestObserver alloc] initWithBlock:completionBlock];
+
+    NSArray *tests = @[
+                      @{
+                        @"provider": @(URLShortenerProviderBitly),
+                        @"result": @"http://bit.ly/WR5sD7"
+                      },
+                      @{
+                        @"provider": @(URLShortenerProviderGoogle),
+                        @"result": @"http://goo.gl/M6loJ"
+                      }
+    ];
+    
+    for (NSDictionary *test in tests)
+    {
+        NSUInteger provider = [test[@"provider"] unsignedLongValue];
+        NSString *result = test[@"result"];
+        
+        hasCalledBack = NO;
+        shortenedText = nil;
+        
+        URLShortener *shortener = [URLShortener urlShortenerWithProvider:provider];
+        [shortener shortenTextWithURLs:@"http://www.nuclearbunny.com/projects/urlkit"
+                              observer:testObserver];
+        
+        NSDate *loopUntil = [NSDate dateWithTimeIntervalSinceNow:10];
+        while (hasCalledBack == NO && [loopUntil timeIntervalSinceNow] > 0)
+        {
+            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                     beforeDate:loopUntil];
+        }
+
+        if (!hasCalledBack)
+        {
+            STFail(@"Timeout while requesting URL shortening from provider");
+        }
+        
+        STAssertEqualObjects(result, shortenedText, @"returned URL does not match expected result");
+    }
 }
 
 @end
